@@ -1,0 +1,43 @@
+@import url("css/responsive.css");
+
+
+/* Reset */
+* { 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: josefin sans;
+}
+
+:root{
+    --body-color: #F6C1D3;
+    --text-input: #313131;
+    --text-text: #000000;
+    --text-saldo: #ffff;
+    --card-color-relatorio: #F5B7C7;
+    --card-color-white: #f5f5f5;
+    --btn-input-color: #54981f;
+}
+
+body{
+    background-color: var(--body-color);
+}
+
+
+
+/* TELAS PEQUENAS PEQUENAS*/
+@media only screen and (max-width: 767px) {
+   
+}
+  
+/* TELAS MÉDIAS */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+   
+}
+  
+  
+/* TELAS GRANDES */
+@media only screen and (min-width: 992px) {
+    
+    
+}  
