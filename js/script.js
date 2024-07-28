@@ -237,6 +237,13 @@ function deletaElemento(tag, id) {
     localStorage.setItem("itens", JSON.stringify(itens));
 }
 
+
+
+
+
+
+/* Função para somar todos valores da lista */
+
 let jsonString = localStorage.getItem('itens');
 
 if(jsonString) {
@@ -249,7 +256,7 @@ if(jsonString) {
     });
 
  
-    document.getElementById('saldoTotal').textContent = totalQuantidade
+    document.getElementById('saldoTotal').textContent = totalQuantidade.toFixed(2)
 
 } else {
     console.log('Nenhum dado encontrado no localstorage com a chave "dados".')
