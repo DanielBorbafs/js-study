@@ -1,5 +1,4 @@
-@import url("css/responsive.css");
-
+@import url("/css/card_pig.css");
 
 /* Reset */
 * { 
@@ -17,17 +16,32 @@
     --card-color-relatorio: #F5B7C7;
     --card-color-white: #f5f5f5;
     --btn-input-color: #54981f;
+    --saldo-total-color:#4A8456;
 }
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 body{
     background-color: var(--body-color);
 }
 
-
+.text__header{
+    text-align: center;
+    padding-top: 1rem;
+    max-width: 380px;
+    
+}
 
 /* TELAS PEQUENAS PEQUENAS*/
 @media only screen and (max-width: 767px) {
-   
+
 }
   
 /* TELAS MÉDIAS */
@@ -36,8 +50,10 @@ body{
 }
   
   
-/* TELAS GRANDES */
-@media only screen and (min-width: 992px) {
-    
-    
-}  
+/* TELAS MÉDIAS */
+@media(min-width: 992px) {
+   
+
+}
+  
+  
