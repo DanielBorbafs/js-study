@@ -135,6 +135,8 @@ const form = document.getElementById('addDolar');
 const lista = document.getElementById("lista");
 const itens = JSON.parse(localStorage.getItem("itens")) || []; // se tiver itens no localstorage traga, se não, crie um array vazio
 
+
+
 itens.forEach((elemento) => {
     criaElemento(elemento);
 });
@@ -174,6 +176,8 @@ form.addEventListener("submit", (evento) => {
 
     data.value = "";
     quantidade.value = "";
+
+    location.reload();
 });
 
 function criaElemento(item) {
@@ -184,7 +188,7 @@ function criaElemento(item) {
 
     const dataSpan = document.createElement('span');
     dataSpan.innerHTML = item.data;
-    dataSpan.dataset.id = item.id; // adicionando um id às datas
+    dataSpan.dataset.id = item.id; // adicionando um id às datas 
     novoItem.appendChild(dataSpan);
     
     novoItem.innerHTML += item.quantidade;
@@ -203,6 +207,12 @@ function atualizaElemento(item) {
     }
 }
 
+
+
+
+
+
+
 /* ETAPA 06 -
 AGORA VAMOS REMOVER UM ITEM DA MOCHILA 
 Ao clicar em cada um item podemos remover
@@ -210,7 +220,7 @@ Ao clicar em cada um item podemos remover
 
 function botaoDeleta(id) {
     const elementoBotao = document.createElement("button");
-    elementoBotao.innerText = "X";
+    elementoBotao.innerHTML= 'X'
 
     elementoBotao.addEventListener("click", function() {
         deletaElemento(this.parentNode, id);
@@ -226,3 +236,24 @@ function deletaElemento(tag, id) {
     
     localStorage.setItem("itens", JSON.stringify(itens));
 }
+
+let jsonString = localStorage.getItem('itens');
+
+if(jsonString) {
+    let dataArray = JSON.parse(jsonString)
+
+    var totalQuantidade = 0;
+
+    dataArray.forEach(item => {
+        totalQuantidade += parseInt(item.quantidade,10)
+    });
+
+ 
+    document.getElementById('saldoTotal').textContent = totalQuantidade
+
+} else {
+    console.log('Nenhum dado encontrado no localstorage com a chave "dados".')
+}
+
+
+console.log("Se apareceu essa mensagem é porque deu tudo certo, pode ir dormir!")

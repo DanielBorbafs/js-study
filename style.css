@@ -1,4 +1,5 @@
 @import url("/css/card_pig.css");
+@import url("/css/buttons.css");
 @import url("/css/card_relatorio.css");
 
 /* Reset */
@@ -52,6 +53,7 @@ header{
 .text__header p{
     width: 80%;
 }
+
 
 /* TELAS PEQUENAS PEQUENAS*/
 @media only screen and (max-width: 767px) {

@@ -64,7 +64,7 @@ form {
     display: flex;
     align-items: center;
     gap: 6px;
-    background-color: #54981F;
+    background-color: #307750;
     border: none;
     border-radius: 12px;
     padding: 4px  14px;
@@ -74,11 +74,13 @@ form {
 
 .saldo-total{
     margin-top: 1.4rem;
-    background-color: var(--saldo-total-color) ;
+    background-color: #307750;
     padding: 0.8rem;
     border-radius: 4px;
     color: var(--card-color-white);
+    width: 250px;
 }
+
 
 .saldo-total > h2{
     font-weight: 400;
