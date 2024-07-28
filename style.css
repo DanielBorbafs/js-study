@@ -1,4 +1,5 @@
 @import url("/css/card_pig.css");
+@import url("/css/card_relatorio.css");
 
 /* Reset */
 * { 
@@ -7,6 +8,7 @@
     box-sizing: border-box;
     font-family: josefin sans;
 }
+
 
 :root{
     --body-color: #F6C1D3;
@@ -19,6 +21,9 @@
     --saldo-total-color:#4A8456;
 }
 
+*{
+    list-style: none;
+}
 
 main{
     display: flex;

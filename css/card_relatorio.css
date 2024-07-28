@@ -1,0 +1,47 @@
+.card__relatorio {
+    margin-top: 2rem;
+    background-color: var(--card-color-relatorio);
+    padding: 2.5rem;
+    border-radius: 8px;
+}
+
+.card__relatorio > h1{
+    text-transform: uppercase;
+}
+
+.card__relatorio_lista{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.lista_item{
+    display: flex;
+    background-color: var(--card-color-white);
+    padding: 10px 20px;
+    justify-content: space-between;
+    border-radius: 4px;
+    font-size: 16px;;
+
+}
+
+.csv-import{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    padding: 12px 8px;
+    border: 1px solid var(--saldo-total-color);
+    border-radius: 4px;
+    height: 52px;
+}
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 24px;
+}
