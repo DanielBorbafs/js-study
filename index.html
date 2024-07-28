@@ -26,19 +26,20 @@
             </div>
             <form action="" id="addDolar">
                 <div class="form__input_date">
-                    <label for="item">Data:</label>
-                    <input  type="date"  id="name" placeholder="data" name="data"/>
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" placeholder="data" name="data"/>
                 </div>
                 <div class="form__input_money">
-                    <label for="item">qtd de dólar comprado</label>
-                    <input  type="text"  id="name" placeholder="Insira o valor comprado" name="quantidade"/>
+                    <label for="quantidade">qtd de dólar comprado</label>
+                    <input required type="text" id="quantidade" placeholder="Insira o valor comprado" name="quantidade"/>
                 </div>
                 <div class="form__input_btn_submit">
-                    
                     <button type="submit"><img src="imgs/coin.png" alt="">Guardar</button>
                 </div>
             </form>
+            
         </section>
+
         <div class="saldo-total">
             <h2>Saldo Total <span>30,00</span></h2>
         </div>
@@ -46,27 +47,7 @@
         <section class="card__relatorio">
             <h1>Últimas compras</h1>
             <ul class="card__relatorio_lista" id="lista">
-                <li class="lista_item">
-                    <span>26/07/2024</span>
-                    5,00
-                </li>
-                <li class="lista_item">
-                    <span>26/07/2024</span>
-                    <span>5,00</span>
-                </li>
-                <li class="lista_item">
-                    <span>26/07/2024</span>
-                    <span>5,00</span>
-                </li>
-                <li class="lista_item">
-                    <span>26/07/2024</span>
-                    <span>5,00</span>
-                </li>
-                <li class="lista_item">
-                    <span>26/07/2024</span>
-                    <span>5,00</span>
-                </li>
-                
+              
             </ul>
         </section>
         <button class="csv-import">
