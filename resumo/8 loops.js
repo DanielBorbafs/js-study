@@ -62,3 +62,21 @@ const pessoa = {
 for (const chave in pessoa) {
   console.log(`${chave}: ${pessoa[chave]}`);
 }
+
+// break
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {
+    break;
+    // Interrompe o loop quando `i` é igual a 5
+  }
+  console.log(i);
+}
+
+// continue
+for (let i = 0; i < 10; i++) {
+  if (i % 2 === 0) {
+    continue;
+    // Pula o código abaixo para números pares
+  }
+  console.log(i);
+}
