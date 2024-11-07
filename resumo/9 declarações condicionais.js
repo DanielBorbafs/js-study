@@ -1,8 +1,3 @@
-// if...else
-if (condition) {
-} else {
-}
-
 // if, else if, else
 let age = 18;
 if (age < 18) {
