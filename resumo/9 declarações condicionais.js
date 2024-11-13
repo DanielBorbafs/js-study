@@ -48,6 +48,8 @@ if (user.isLoggedIn && user.isAdmin) {
 // Condicionais encadeadas
 let time = 14;
 if (time < 12) {
+  0;
+
   console.log('Bom dia');
 } else {
   if (time < 18) {
