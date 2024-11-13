@@ -21,3 +21,8 @@ console.log(!a); // Saída: false
 
 let isLoggedIn = false;
 console.log(!isLoggedIn); // Saída: true
+
+// O operador ?? retorna o valor do lado direito se o valor do lado esquerdo for null ou undefined. Ele é útil para definir valores padrão.
+
+let name;
+console.log(name ?? 'Usuário'); // Saída: "Usuário"
