@@ -29,8 +29,10 @@ async function buscaCep() {
 }
 
 function exibirEndereco(Endereco) {
-  console.log('Alerta:', Endereco.sucesso);
-  // aqui podemos jogar na dom
+  document.getElementById('cep').value = Endereco.cep;
+  document.getElementById('uf').value = Endereco.estado;
+  document.getElementById('rua').value = Endereco.logradouro;
+  document.getElementById('bairro').value = Endereco.bairro;
 }
 
 buscaCep();
