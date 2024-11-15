@@ -1,0 +1,1 @@
+Etapa 01 - consumir a API do viacep e imprimir no console determinado cep
