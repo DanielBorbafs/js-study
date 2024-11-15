@@ -1,9 +1,10 @@
 const urlViaCep = 'https://viacep.com.br/ws/01001000/json/';
 
 // por enquanto alteramos o campo de cep aqui
-let cep = '29178675';
+let cep = '29178585';
 let UrlTransformada = `https://viacep.com.br/ws/${cep}/json/`;
 
+// Criar uma funcao para capturar o ID via input
 async function buscaCep() {
   try {
     const response = await fetch(UrlTransformada);
