@@ -6,21 +6,28 @@
     <title>teste</title>
   </head>
   <body>
-    <form action="submit">
-      <input type="text" name="" id="cep" />
-      <input type="text" name="" id="uf" />
-      <input type="text" name="" id="rua" />
-      <input type="text" name="" id="bairro" />
+    <form id="enderecoForm">
+      <label for="cep">CEP:</label>
+      <input
+        type="text"
+        id="cep"
+        name="cep"
+        maxlength="9"
+        placeholder="12345-678"
+      />
+
+      <label for="logradouro">Logradouro:</label>
+      <input type="text" id="logradouro" name="logradouro" readonly />
+
+      <label for="bairro">Bairro:</label>
+      <input type="text" id="bairro" name="bairro" readonly />
+
+      <label for="cidade">Cidade:</label>
+      <input type="text" id="cidade" name="cidade" readonly />
+
+      <label for="estado">Estado:</label>
+      <input type="text" id="estado" name="estado" readonly />
     </form>
-
-    <style>
-      input {
-        text-align: center;
-        padding: 1rem;
-        border-radius: 0.5rem;
-      }
-    </style>
-
     <script src="script.js"></script>
   </body>
 </html>

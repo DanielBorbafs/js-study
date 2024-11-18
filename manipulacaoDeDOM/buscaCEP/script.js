@@ -1,39 +1,49 @@
-const urlViaCep = 'https://viacep.com.br/ws/01001000/json/';
+const cepInput = document.getElementById('cep');
+const logradouroInput = document.getElementById('logradouro');
+const bairroInput = document.getElementById('bairro');
+const cidadeInput = document.getElementById('cidade');
+const estadoInput = document.getElementById('estado');
 
-// por enquanto alteramos o campo de cep aqui
-let cep = '29178585';
-let UrlTransformada = `https://viacep.com.br/ws/${cep}/json/`;
+async function buscaCep(cep) {
+  const urlViaCep = `https://viacep.com.br/ws/${cep}/json/`;
 
-// Criar uma funcao para capturar o ID via input
-async function buscaCep() {
   try {
-    const response = await fetch(UrlTransformada);
+    const response = await fetch(urlViaCep);
     if (!response.ok) {
-      throw new Error('Erro na requisição' + response.status);
+      throw new Error('Erro na requisição: ' + response.status);
     }
+
     const data = await response.json();
 
-    const enderecoFormatado = {
-      logradouro: data.logradouro,
-      bairro: data.bairro,
-      cidade: data.localidade,
-      estado: data.uf,
-      cep: data.cep,
-    };
-    enderecoFormatado.sucesso = 'Json obtido com sucesso';
-    console.log('Endereco formatado:', enderecoFormatado);
-
-    exibirEndereco(enderecoFormatado);
+    if (!data.erro) {
+      logradouroInput.value = data.logradouro || '';
+      bairroInput.value = data.bairro || '';
+      cidadeInput.value = data.localidade || '';
+      estadoInput.value = data.uf || '';
+    } else {
+      alert('CEP não encontrado.');
+      limpaCampos();
+    }
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Erro ao buscar o CEP:', error);
+    alert('Erro ao buscar o CEP.');
+    limpaCampos();
   }
 }
 
-function exibirEndereco(Endereco) {
-  document.getElementById('cep').value = Endereco.cep;
-  document.getElementById('uf').value = Endereco.estado;
-  document.getElementById('rua').value = Endereco.logradouro;
-  document.getElementById('bairro').value = Endereco.bairro;
+function limpaCampos() {
+  logradouroInput.value = '';
+  bairroInput.value = '';
+  cidadeInput.value = '';
+  estadoInput.value = '';
 }
 
-buscaCep();
+cepInput.addEventListener('blur', () => {
+  const cep = cepInput.value.replace(/\D/g, '');
+  if (cep.length === 8) {
+    buscaCep(cep);
+  } else {
+    alert('Digite um CEP válido com 8 dígitos numéricos.');
+    limpaCampos();
+  }
+});
