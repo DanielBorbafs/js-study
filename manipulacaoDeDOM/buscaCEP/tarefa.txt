@@ -1,3 +1,0 @@
-Etapa 01 - consumir a API do viacep e imprimir no console determinado endereco que definimos pelo cep - FEITO
-Etapa 02 - buscar o cep e auto completar via input - falta
-Etapa 03 - Fazer o front-end
