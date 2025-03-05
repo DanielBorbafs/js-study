@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Números Primos</title>
+  </head>
+  <body>
+    <h1>Programa Números Primos</h1>
+    <p>
+      Número
+      <input type="text" id="inNumero" />
+    </p>
+
+    <button id="verificaNumero">Verifica Primo</button>
+    <p id="outNumero"></p>
+
+    <script>
+      function verificaPrimo() {
+        let inNumero = document.getElementById('inNumero');
+        let outNumero = document.getElementById('outNumero');
+
+        var num = Number(inNumero.value);
+
+        if (num == 0 || isNaN(num)) {
+          alert('Número inválido');
+          inNumero.focus();
+          return;
+        }
+
+        var numDivisores = 0;
+
+        // percorre todos os possíveis divisores do número
+        for (var i = 1; i <= num; i++) {
+          if (num % i == 0) {
+            numDivisores++;
+          }
+        }
+
+        if (numDivisores == 2) {
+          outNumero.textContent = num + 'é Primo';
+        } else {
+          outNumero.textContent = num + 'não é primo';
+        }
+      }
+
+      let btVerificaNumero = document.getElementById('verificaNumero');
+      btVerificaNumero.addEventListener('click', verificaPrimo);
+    </script>
+  </body>
+</html>
