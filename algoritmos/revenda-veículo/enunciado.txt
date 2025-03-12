@@ -1,0 +1,4 @@
+Ele deve ler modelo, ano de fabricação e preço do veículo (o valor que o proprietário deseja receber pelo veículo). 
+Em seguida, o programa deve classicar o veículo como: “Novo” (do ano atual), “Seminovo” (até 2 anos de uso) ou “Usado”. 
+Também deve apresentar o preço de venda do veículo com um acréscimo de 8% no preço dos veículos novos ou de 10% no preço dos veículos classicados como seminovos ou usados. 
+Para a classicação e o cálculo do preço de venda do veículo, serão utilizadas funções com retorno de valor. 
