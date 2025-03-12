@@ -1,0 +1,3 @@
+Nosso programa deve ler o preço de um produto qualquer e exibir as formas de pagamento disponíveis na loja,
+que variam de 1x até 10x. 
+Dessa forma, realizamos uma breve revisão das rotinas de repetição.
