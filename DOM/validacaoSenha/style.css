@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem;
+  border: 1px solid #c0c0c0bc;
+  border-radius: 2px;
+}
+
+.form__title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form__line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#btnRegister {
+  width: 100%;
+  padding: 8px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #c0c0c0bc; /* Borda padrão */
+  border-radius: 2px;
+  height: 20px;
+  outline: none; /* Remove aquela borda azul padrão do navegador */
+}
+
+input:focus {
+  border: 2px solid #007bff; /* Borda azul quando o input é clicado */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona um leve brilho */
+}
