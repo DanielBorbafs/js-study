@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 a {
@@ -47,13 +48,17 @@ form {
 
 input {
   padding: 8px;
-  border: 1px solid #c0c0c0bc; /* Borda padrão */
+  border: 1px solid #c0c0c0bc;
+  /* Borda padrão */
   border-radius: 2px;
   height: 20px;
-  outline: none; /* Remove aquela borda azul padrão do navegador */
+  outline: none;
+  /* Remove aquela borda azul padrão do navegador */
 }
 
 input:focus {
-  border: 2px solid #007bff; /* Borda azul quando o input é clicado */
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona um leve brilho */
+  border: 2px solid #007bff;
+  /* Borda azul quando o input é clicado */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  /* Adiciona um leve brilho */
 }
