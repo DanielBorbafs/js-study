@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <title>Exemplo 9.1</title>
+  </head>
+  <style>
+    h1 {
+      border-bottom-style: inset;
+    }
+    img.imgProg {
+      max-width: 100%;
+    }
+    .tarefaSelecionada {
+      color: red;
+      font-style: italic;
+    }
+    .tarefaNormal {
+      color: black;
+    }
+    img.moeda1_00 {
+      height: 84px;
+      width: 84px;
+      margin-bottom: 5px;
+    }
+    img.moeda0_50 {
+      height: 66px;
+      width: 66px;
+      margin-bottom: 5px;
+    }
+    img.moeda0_25 {
+      height: 76px;
+      width: 76px;
+      margin-bottom: 5px;
+    }
+  </style>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12" id="divQuadro">
+          <h1>Tarefas do Dia (a realizar)</h1>
+          <p>
+            <label for="inTarefa">Tarefa:</label>
+            <input type="text" class="form-control" id="inTarefa" autofocus />
+          </p>
+          <p>
+            <input
+              type="button"
+              class="btn btn-primary"
+              value="Adicionar &#10003;"
+              id="btAdicionar"
+            />
+            <input
+              type="button"
+              class="btn btn-info"
+              value="Selecionar &#8645;"
+              id="btSelecionar"
+            />
+            <input
+              type="button"
+              class="btn btn-danger"
+              value="Retirar Selecionada &#10007;"
+              id="btRetirar"
+            />
+            <input
+              type="button"
+              class="btn btn-success"
+              value="Gravar &#9673;"
+              id="btGravar"
+            />
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function adicionarTarefa() {
+        var inTarefa = document.getElementById('inTarefa');
+        var tarefa = inTarefa.value;
+
+        if (tarefa == '') {
+          alert('Informe a tarefa');
+          inTarefa.focus();
+          return;
+        }
+
+        var divQuadro = document.getElementById('divQuadro');
+        var h5 = document.createElement('h5');
+        var texto = document.createTextNode(tarefa);
+        h5.appendChild(texto);
+        divQuadro.appendChild(h5);
+
+        inTarefa.value = '';
+        inTarefa.focus();
+      }
+
+      var btAdicionar = document.getElementById('btAdicionar');
+      btAdicionar.addEventListener('click', adicionarTarefa);
+
+      function selecionarTarefa() {
+        var h5 = document.getElementsByTagName('h5');
+        var numH5 = h5.length;
+
+        if (numH5 == 0) {
+          alert('Não há tarefas para selecionar');
+          return;
+        }
+
+        var indiceSelecionado = -1;
+
+        // Encontrar qual tarefa está selecionada
+        for (var i = 0; i < numH5; i++) {
+          if (h5[i].className == 'tarefaSelecionada') {
+            h5[i].className = 'tarefaNormal'; // Desmarca a atual
+            indiceSelecionado = i;
+            break;
+          }
+        }
+
+        // Seleciona a próxima tarefa (ou a primeira se chegou ao fim)
+        var proximoIndice = (indiceSelecionado + 1) % numH5;
+        h5[proximoIndice].className = 'tarefaSelecionada';
+      }
+
+      var btSelecionar = document.getElementById('btSelecionar');
+      btSelecionar.addEventListener('click', selecionarTarefa);
+
+      function retirarSelecionada() {
+        var divQuadro = document.getElementById('divQuadro');
+        var h5 = document.getElementsByTagName('h5');
+
+        var numH5 = h5.length;
+        var aux = -1;
+        for (var i = 0; i < numH5; i++) {
+          if (h5[i].className == 'tarefaSelecionada') {
+            aux = i;
+            break;
+          }
+        }
+        if (aux == -1) {
+          alert('Selecione uma tarefa para removê-la...');
+          return;
+        }
+        if (confirm('Confirma exclusão de ' + h5[aux].textContent + '?')) {
+          divQuadro.removeChild(h5[aux]);
+          divQuadro;
+        }
+      }
+      var btRetirar = document.getElementById('btRetirar');
+      btRetirar.addEventListener('click', retirarSelecionada);
+
+      function gravarTarefas() {
+        var h5 = document.getElementsByTagName('h5');
+        var numH5 = h5.length;
+
+        if (numH5 == 0) {
+          alert('Não tem tarefas para serem salvas');
+          return;
+        }
+
+        var tarefas = '';
+
+        for (var i = 0; i < numH5; i++) {
+          tarefas += h5[i].textContent + ';';
+        }
+
+        localStorage.setItem(
+          'tarefasDia',
+          tarefas.substring(0, tarefas.length - 1)
+        );
+
+        if (localStorage.getItem('tarefasDia')) {
+          alert('tarefas salvas');
+        }
+      }
+
+      var btGravar = document.getElementById('btGravar');
+      btGravar.addEventListener('click', gravarTarefas);
+
+      function recuperarTarefasSalvas() {
+        if (localStorage.getItem('tarefasDia')) {
+          var tarefas = localStorage.getItem('tarefasDia').split(';');
+          var divQuadro = document.getElementById('divQuadro');
+
+          for (var i = 0; i < tarefas.length; i++) {
+            var h5 = document.createElement('h5');
+            var texto = document.createTextNode(tarefas[i]);
+            h5.appendChild(texto); // Adiciona o texto ao h5
+            h5.className = 'tarefaNormal'; // Define a classe de estilo inicial
+            divQuadro.appendChild(h5); // Adiciona ao quadro
+          }
+        }
+      }
+      recuperarTarefasSalvas();
+    </script>
+  </body>
+</html>
