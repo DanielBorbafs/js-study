@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    .form__error__message {
+      color: red;
+      font-size: 0.8em;
+      margin-top: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <form id="formLogin">
+    <div>
+      <label for="emailLogin">E-mail:</label>
+      <input type="email" id="emailLogin" required>
+      <span class="form__error__message" id="erroEmailLogin"></span>
+    </div>
+    <div>
+      <label for="senhaLogin">Senha:</label>
+      <input type="password" id="senhaLogin" required>
+      <span class="form__error__message" id="erroSenhaLogin"></span>
+    </div>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <script>
+  function exibirErro(idCampo, mensagem) {
+  const elementoErro = document.getElementById(idCampo);
+  elementoErro.textContent = mensagem;
+  elementoErro.style.display = 'block'; // Exibe a mensagem de erro
+}
+
+function limparErros() {
+  const erros = document.querySelectorAll('.form__error__message');
+  erros.forEach(erro => {
+    erro.textContent = '';
+    erro.style.display = 'none'; // Oculta a mensagem de erro
+  });
+}
+
+function validarLogin(event) {
+  event.preventDefault(); // Impede o envio do formulário
+  limparErros(); // Limpa todas as mensagens de erro anteriores
+
+  // Obtém os valores dos campos de login
+  const emailLogin = document.getElementById('emailLogin').value.trim();
+  const senhaLogin = document.getElementById('senhaLogin').value.trim();
+
+  // Recupera os dados do usuário armazenados no localStorage
+  const usuarioRegistrado = localStorage.getItem('usuarioRegistrado');
+
+  if (!usuarioRegistrado) {
+    exibirErro('erroEmailLogin', 'Nenhum usuário registrado.');
+    return;
+  }
+
+  // Converte os dados de volta para um objeto
+  const usuario = JSON.parse(usuarioRegistrado);
+
+  // Verifica se o e-mail e a senha coincidem
+  if (emailLogin !== usuario.email) {
+    exibirErro('erroEmailLogin', 'E-mail incorreto.');
+    return;
+  }
+
+  if (senhaLogin !== usuario.senha) {
+    exibirErro('erroSenhaLogin', 'Senha incorreta.');
+    return;
+  }
+
+  // Se tudo estiver correto, redireciona para outra página
+  alert('Login realizado com sucesso!');
+  window.location.href = 'pagina-inicial.html'; // Altere para a página desejada
+}
+
+// Adiciona o evento de submit ao formulário de login
+document.getElementById('formLogin').addEventListener('submit', validarLogin);
+  </script>
+</body>
+</html>

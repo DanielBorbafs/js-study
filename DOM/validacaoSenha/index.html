@@ -5,7 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./style.css" />
-  <title>Pesquisa de usuário</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Registro de usuário</title>
 </head>
 
 <body>
@@ -22,32 +25,37 @@
         <div class="form__group">
           <label class="form__label">Primeiro Nome</label>
           <input type="text" class="form__control" placeholder="Primeiro nome" id="primeiro_nome" />
+          <span class="form__error__message" id="erroNome"></span> 
         </div>
         <div class="form__group">
           <label class="form__label">Segundo Nome</label>
           <input type="text" class="form__control" placeholder="Segundo nome" id="segundo_nome" />
+          <span class="form__error__message" id="erroSobrenome"></span>
         </div>
       </div>
 
       <div class="form__group">
         <label class="form__label">Email</label>
         <input type="email" class="form__control" placeholder="Endereço de e-mail" id="email" />
+        <span class="form__error__message" id="erroEmail"></span>
       </div>
       <div class="form__line">
         <div class="form__group">
           <label class="form__label">Crie uma senha</label>
           <input type="password" class="form__control" placeholder="Primeiro nome" id="password" />
+          <span class="form__error__message" id="erroSenha"></span>
         </div>
         <div class="form__group">
           <label class="form__label">Repita a senha</label>
           <input type="text" class="form__control" placeholder="Repita a senha" id="password-confirm" />
+          <span class="form__error__message" id="erroConfirmSenha"></span>
         </div>
       </div>
-      <p>
-        Escolher uma senha é necessário pois em breve iremos lançar a
-        plataforma!
-      </p>
-      <button id="btnRegister">Enviar dados</button>
+   
+      <div class="btn__registro">
+        <button id="btnRegister">Cadastrar</button>
+      </div>
+      
     </form>
   </section>
 

@@ -3,16 +3,30 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
+  background-image: url(./bg.png);
+  background-repeat: no-repeat;
+  background-size: cover; /* Faz a imagem cobrir todo o espaço */
+  height: 100vh;
+
+}
+
+*{
+  font-family: poppins;
 }
 
 a {
   text-decoration: none;
 }
 
+li{
+  list-style: none;
+}
+
 form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 480px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -20,6 +34,8 @@ form {
   padding: 1.5rem;
   border: 1px solid #c0c0c0bc;
   border-radius: 2px;
+  box-shadow: 0 0 8px rgba(53, 53, 53, 0.267);
+  background-color: rgb(255, 255, 255);
 }
 
 .form__title {
@@ -33,17 +49,26 @@ form {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-}
+} 
 
 .form__group {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 100%;
+  
 }
 
-#btnRegister {
-  width: 100%;
-  padding: 8px;
+
+.btn__registro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & #btnRegister{
+    width: 50%;
+    padding: 6px;
+    cursor: pointer;
+  }
 }
 
 input {
@@ -60,5 +85,14 @@ input:focus {
   border: 2px solid #007bff;
   /* Borda azul quando o input é clicado */
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-  /* Adiciona um leve brilho */
+ 
+}
+
+
+.form__error__message{
+  color: red;
+  text-align: center;
+  padding: 4px;
+  font-size: 12px;
+  text-align: start;
 }
