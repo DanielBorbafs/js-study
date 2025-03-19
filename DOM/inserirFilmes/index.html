@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela Simples</title>
+    <style>
+      /* Estilos básicos para a tabela */
+      table {
+        width: 100%; /* Largura da tabela */
+        border-collapse: collapse; /* Remove espaços entre as células */
+        font-family: Arial, sans-serif; /* Fonte */
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd; /* Borda das células */
+        padding: 8px; /* Espaçamento interno */
+        text-align: left; /* Alinhamento do texto */
+      }
+
+      th {
+        background-color: #f4f4f4; /* Cor de fundo do cabeçalho */
+        font-weight: bold; /* Texto em negrito */
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9; /* Cor de fundo para linhas pares */
+      }
+
+      tr:hover {
+        background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Idade</th>
+          <th>Cidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>João Silva</td>
+          <td>25</td>
+          <td>São Paulo</td>
+        </tr>
+        <tr>
+          <td>Maria Oliveira</td>
+          <td>30</td>
+          <td>Rio de Janeiro</td>
+        </tr>
+        <tr>
+          <td>Carlos Souza</td>
+          <td>22</td>
+          <td>Belo Horizonte</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

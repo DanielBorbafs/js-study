@@ -1,0 +1,9 @@
+Problema: Ordenação de uma Lista
+Dada uma lista de números, ordene-os em ordem crescente.
+
+Algoritmo: Bubble Sort
+O Bubble Sort funciona comparando cada par de elementos adjacentes na lista e trocando-os se estiverem na ordem errada. 
+Esse processo é repetido até que a lista esteja completamente ordenada.
+
+Outros tipos de algoritmos
+Quick Sort, Merge Sort, Busca Binária
