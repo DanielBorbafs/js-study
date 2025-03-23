@@ -1,2 +1,2 @@
- O terceiro programa deste capítulo deve cadastrar lmes na localStorage e exibir uma tabela contendo título, 
+ O terceiro programa deste capítulo deve cadastrar filmes na localStorage e exibir uma tabela contendo título, 
  gênero e uma coluna que permita ao usuário selecionar o lme para exclusã

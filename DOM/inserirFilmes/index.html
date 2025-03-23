@@ -31,9 +31,49 @@
       tr:hover {
         background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
       }
+
+      .form__cadastro {
+        display: flex;
+        flex-direction: column;
+        & label {
+          margin-top: 1rem;
+        }
+        & input {
+          height: 24px;
+          margin-top: 0.1rem;
+          width: 230px;
+          border-radius: 4px;
+          border: 1px solid blue;
+          padding: 4px;
+        }
+        & button {
+          width: 230px;
+          margin-top: 1rem;
+          height: 32px;
+        }
+      }
     </style>
   </head>
   <body>
+    <h1>Cadastro de filmes</h1>
+    <hr />
+    <div class="form__cadastro">
+      <label>Título do filme:</label>
+      <input
+        type="text"
+        placeholder="Insira o nome do filme"
+        id="inNomeFilme"
+      />
+      <label>Gênero do filme:</label>
+      <input
+        type="text"
+        placeholder="Insira o gênero do filme"
+        id="inGeneroFilme"
+      />
+      <button id="cadastraFilme">Cadastrar filme</button>
+    </div>
+
+    <!--
     <table>
       <thead>
         <tr>
@@ -44,7 +84,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>João Silva</td>
+          <td></td>
           <td>25</td>
           <td>São Paulo</td>
         </tr>
@@ -60,5 +100,20 @@
         </tr>
       </tbody>
     </table>
+    --->
+
+    <script>
+      function salvaFilme() {
+        let inputFilme = document.getElementById('inNomeFilme').value;
+        let inputGenero = document.getElementById('inGeneroFilme').value;
+
+        localStorage.setItem('nomeFilme', inputFilme);
+        localStorage.setItem('nomeGenero', inputGenero);
+      }
+
+      document
+        .getElementById('cadastraFilme')
+        .addEventListener('click', salvaFilme);
+    </script>
   </body>
 </html>
