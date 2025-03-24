@@ -1,0 +1,5 @@
+ETAPAS
+1 - Criar um input text para gênero e filme;
+2 - Armazenar os filmes no local storage;
+3 - Criar uma tabela com uma coluna para gênero, outra para filme.
+---------------------------------------------------------------------

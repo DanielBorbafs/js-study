@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armazenar Filmes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<style>
+    .form__input {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .form__input__element {
+        display: flex;
+        gap: 0.2rem;
+        flex-direction: column;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 form__input">
+                <div class="form__input__element">
+                    <label>Nome do filme</label>
+                    <input type="text" placeholder="Insira o nome do filme..." id="inNomeFilme">
+                </div>
+                <div class="form__input__element">
+                    <label>Gênero do filme</label>
+                    <input type="text" placeholder="Insira o gênero do filme..." id="inGeneroFilme">
+                </div>
+                <button id="cadastraFilme" class="btn btn-primary">Cadastrar filme</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome do Filme</th>
+                    <th>Gênero do Filme</th>
+                    <th>Selecionar</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaFilmes">
+                <!-- As linhas da tabela serão inseridas aqui -->
+            </tbody>
+        </table>
+        <button id="excluirSelecionados" class="btn btn-danger">Excluir selecionados</button>
+    </div>
+
+    <script>
+        // Função para armazenar um novo filme
+        function armazenaFilme() {
+            let inputNomeFilme = document.getElementById('inNomeFilme').value.trim();
+            let inputGeneroFilme = document.getElementById('inGeneroFilme').value.trim();
+
+            // Verifica se os campos estão preenchidos
+            if (!inputNomeFilme || !inputGeneroFilme) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // Cria o objeto filme
+            let filme = {
+                nome: inputNomeFilme,
+                genero: inputGeneroFilme
+            };
+
+            // Recupera a lista de filmes do localStorage
+            let filmes = JSON.parse(localStorage.getItem('filmes')) || [];
+
+            // Adiciona o novo filme ao array
+            filmes.push(filme);
+
+            // Armazena o array atualizado no localStorage
+            localStorage.setItem('filmes', JSON.stringify(filmes));
+
+            // Atualiza a tabela
+            criaTabela();
+
+            // Limpa os campos do formulário
+            document.getElementById('inNomeFilme').value = '';
+            document.getElementById('inGeneroFilme').value = '';
+        }
+
+        // Função para criar a tabela com os filmes cadastrados
+        function criaTabela() {
+            let filmes = JSON.parse(localStorage.getItem('filmes')) || [];
+            let tabelaBody = document.getElementById('tabelaFilmes');
+
+            // Limpa a tabela antes de adicionar novos dados
+            tabelaBody.innerHTML = '';
+
+            // Verifica se há filmes cadastrados
+            if (filmes.length === 0) {
+                alert('Não há filmes cadastrados.');
+                return;
+            }
+
+            // Adiciona cada filme à tabela
+            filmes.forEach((filme, index) => {
+                let tr = document.createElement('tr');
+                // Coluna do nome do filme
+                let tdNomeFilme = document.createElement('td');
+                tdNomeFilme.textContent = filme.nome;
+                tr.appendChild(tdNomeFilme);
+
+                // Coluna do gênero do filme
+                let tdGeneroFilme = document.createElement('td');
+                tdGeneroFilme.textContent = filme.genero;
+                tr.appendChild(tdGeneroFilme);
+
+
+                // Coluna do checkbox
+                let tdCheckbox = document.createElement('td');
+                let checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = index; // Usamos o índice do filme como valor
+                tdCheckbox.appendChild(checkbox);
+                tr.appendChild(tdCheckbox);
+
+                
+                tabelaBody.appendChild(tr);
+            });
+        }
+
+        // Função para excluir os filmes selecionados
+        function excluirSelecionados() {
+            let filmes = JSON.parse(localStorage.getItem('filmes')) || [];
+            let checkboxes = document.querySelectorAll('#tabelaFilmes input[type="checkbox"]:checked');
+
+            // Verifica se há filmes selecionados
+            if (checkboxes.length === 0) {
+                alert('Nenhum filme selecionado para exclusão.');
+                return;
+            }
+
+            // Remove os filmes selecionados
+            checkboxes.forEach((checkbox) => {
+                let index = checkbox.value; // Índice do filme no array
+                filmes.splice(index, 1); // Remove o filme do array
+            });
+
+            // Atualiza o localStorage
+            localStorage.setItem('filmes', JSON.stringify(filmes));
+
+            // Atualiza a tabela
+            criaTabela();
+        }
+
+        // Evento para cadastrar o filme
+        document.getElementById('cadastraFilme').addEventListener('click', armazenaFilme);
+
+        // Evento para excluir os filmes selecionados
+        document.getElementById('excluirSelecionados').addEventListener('click', excluirSelecionados);
+
+        // Carrega a tabela ao carregar a página
+        window.onload = criaTabela;
+    </script>
+</body>
+</html>
