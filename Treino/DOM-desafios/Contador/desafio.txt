@@ -1,3 +1,0 @@
-Crie um botão que, ao ser clicado, altere o texto de um elemento <p> na página.
-
-Faça um contador simples (incrementar/decrementar) com botões e exiba o valor na tela.
