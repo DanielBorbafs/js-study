@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <title>Contador</title>
+  </head>
+
+  <style>
+    header {
+      background: rgba(117, 117, 117, 0.247);
+      text-align: center;
+      padding: 15px;
+      font-size: 20px;
+    }
+    .contador {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      & i {
+        font-size: 64px;
+      }
+      & p {
+        font-size: 64px;
+      }
+    }
+
+    main {
+      background: red;
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+  </style>
+  <body>
+    <header>
+      <p>
+        Crie um botão que, ao ser clicado, altere o texto de um elemento na
+        página. Faça um contador simples (incrementar/decrementar) com botões e
+        exiba o valor na tela.
+      </p>
+    </header>
+    <hr />
+    <main>
+      <div class="contador">
+        <i class="bx bx-up-arrow-circle" id="incrementa"></i>
+        <p id="number">1</p>
+        <i class="bx bx-down-arrow-circle" id="decrementa"></i>
+      </div>
+    </main>
+    <script>
+      function incrementa() {
+        let numeroAtual = document.getElementById('number');
+        let numberAtual = numeroAtual.textContent;
+        numberAtual = Number(numberAtual);
+
+        let incremento = numberAtual + 1;
+        numeroAtual.textContent = incremento;
+      }
+
+      function decrementa() {
+        let numeroAtual = document.getElementById('number');
+        let numberAtual = numeroAtual.textContent;
+        numberAtual = Number(numberAtual);
+        console.log(numberAtual);
+
+        if (numberAtual <= 0) {
+          alert('não podemos decrementar números abaixo de zero');
+        } else {
+          let decremento = numberAtual - 1;
+          numeroAtual.textContent = decremento;
+        }
+      }
+
+      let ativaNumero = document.getElementById('incrementa');
+      ativaNumero.addEventListener('click', incrementa);
+
+      let decrementaNumero = document.getElementById('decrementa');
+      decrementaNumero.addEventListener('click', decrementa);
+    </script>
+  </body>
+</html>
