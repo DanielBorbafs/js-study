@@ -20,17 +20,21 @@
     .contador {
       display: flex;
       align-items: center;
+      color: #ffff;
       gap: 2rem;
       & i {
         font-size: 64px;
+        color: #ffff;
+        cursor: pointer;
       }
       & p {
         font-size: 64px;
+        color: #ffff;
       }
     }
 
     main {
-      background: red;
+      background: rgb(32, 32, 32);
       display: flex;
       justify-content: center;
       padding: 1.5rem;
@@ -55,8 +59,7 @@
     <script>
       function incrementa() {
         let numeroAtual = document.getElementById('number');
-        let numberAtual = numeroAtual.textContent;
-        numberAtual = Number(numberAtual);
+        let numberAtual = Number(numeroAtual.textContent);
 
         let incremento = numberAtual + 1;
         numeroAtual.textContent = incremento;
@@ -64,10 +67,7 @@
 
       function decrementa() {
         let numeroAtual = document.getElementById('number');
-        let numberAtual = numeroAtual.textContent;
-        numberAtual = Number(numberAtual);
-        console.log(numberAtual);
-
+        let numberAtual = Number(numeroAtual.textContent);
         if (numberAtual <= 0) {
           alert('não podemos decrementar números abaixo de zero');
         } else {
@@ -76,11 +76,12 @@
         }
       }
 
-      let ativaNumero = document.getElementById('incrementa');
-      ativaNumero.addEventListener('click', incrementa);
-
-      let decrementaNumero = document.getElementById('decrementa');
-      decrementaNumero.addEventListener('click', decrementa);
+      document
+        .getElementById('incrementa')
+        .addEventListener('click', incrementa);
+      document
+        .getElementById('decrementa')
+        .addEventListener('click', decrementa);
     </script>
   </body>
 </html>
